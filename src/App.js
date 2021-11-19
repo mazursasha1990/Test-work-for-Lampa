@@ -1,11 +1,42 @@
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import { Redirect } from 'react-router-dom';
+import Shop from './components/Shop';
+import Navbar from './components/Navbar';
+import Cart from './components/Cart';
+import './App.scss';
+import { connect } from "react-redux";
+import SingleProduct from "./components/SingleProduct";
 
-function App() {
+
+function App({ current }) {
+  // console.log(current);
   return (
-    <div className="App">
-
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Shop} />
+          <Route exact path="/cart" component={Cart} />
+          {!current ?
+            <Redirect to="/" />
+            :
+            <Route exact path="/product/:id" component={SingleProduct} />
+          }
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    current: state.shop.currentItem,
+  };
+};
+
+export default connect(mapStateToProps)(App);
