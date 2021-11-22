@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as actionTypes from "./shopping-types";
 
 export const addToCart = (itemID) => {
@@ -34,3 +35,19 @@ export const loadCurrentItem = (item) => {
         payload: item,
     };
 };
+
+export const fetchData = () => {
+    return (dispatch) => axios.get("https://run.mocky.io/v3/e2584ce0-c1e7-4ea8-ac5d-15171588d82c")
+        .then(response => {
+            return response.data;
+        })
+        .then(data => {
+            dispatch({
+                type: actionTypes.ADD_FETCHED_DATA,
+                payload: data
+            });
+        })
+        .catch(error => {
+            throw (error);
+        })
+}
