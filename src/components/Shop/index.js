@@ -1,10 +1,7 @@
 import React from "react";
-import "./index.scss";
-
-// Redux
 import { connect } from "react-redux";
-
 import Product from "../Poduct";
+import "./index.scss";
 
 const Shop = ({ products }) => {
     return (
@@ -18,7 +15,8 @@ const Shop = ({ products }) => {
 
 const mapStateToProps = (state) => {
     return {
-        products: state.shop.products,
+        // productsData: state.fetchProducts,
+        products: state.shop.products
     };
 };
 

@@ -13,7 +13,6 @@ import SingleProduct from "./components/SingleProduct";
 
 
 function App({ current }) {
-  // console.log(current);
   return (
     <Router>
       <div className="App">
@@ -33,7 +32,6 @@ function App({ current }) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     current: state.shop.currentItem,
   };
