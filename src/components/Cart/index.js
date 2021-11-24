@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import CartItem from "../CartItem";
+import OrderForm from "../OrderForm";
 import './index.scss'
 
 const Cart = ({ cart }) => {
@@ -26,22 +27,22 @@ const Cart = ({ cart }) => {
                 {cart.map((item) => (
                     <CartItem key={item.id} item={item} />
                 ))}
+                <div className="summaryPrice">
+                    {totalPrice ?
+                        <span>TOTAL: {totalPrice}$</span>
+                        : <span>Your cart is empty</span>
+                    }
+                </div>
             </div>
             <div className="cartSummary">
-                <h4 className="summaryTitle">Cart Summary</h4>
-                <div className="summaryPrice">
-                    <span>TOTAL: ({totalItems} items)</span>
-                    <span>$ {totalPrice}</span>
-                </div>
-                <button className="summaryCheckoutBtn">
-                    Proceed To Checkout
-                </button>
+                <OrderForm />
             </div>
         </div>
     );
 };
 
 const mapStateToProps = (state) => {
+    console.log("state.shop.cart", state.shop.cart);
     return {
         cart: state.shop.cart,
     };

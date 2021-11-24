@@ -4,34 +4,42 @@ import { connect } from "react-redux";
 import cartImage from "../../assets/images/cart.svg"
 import './index.scss'
 
-
-
 const Navbar = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let count = 0;
+    let price = 0;
+
     cart.forEach((item) => {
       count += item.qty;
+      price += item.qty * item.price;
     });
 
     setCartCount(count);
-  }, [cart, cartCount]);
+    setTotalPrice(price);
+  }, [cart, cartCount, totalPrice]);
 
   return (
     <div className="navbar">
       <Link to="/">
-        <h2 className="navbarLogo">Redux Shopping Cart</h2>
+        <h2 className="navbarLogo">LOGO</h2>
       </Link>
       <Link to="/cart">
         <div className="navbarCart">
-          <h3 className="cartTitle">Cart</h3>
-          <img
-            className="cartImage"
-            src={cartImage}
-            alt="shopping cart"
-          />
-          <div className="cartCounter">{cartCount}</div>
+          <section>
+            <img
+              className="cartImage"
+              src={cartImage}
+              alt="shopping cart"
+            />
+          </section>
+          <section>
+            {cartCount ? (
+              <span>Total price: {totalPrice} $</span>
+            ) : <span></span>}
+          </section>
         </div>
       </Link>
     </div>

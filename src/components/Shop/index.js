@@ -15,7 +15,6 @@ const Shop = ({ products }) => {
 
 const mapStateToProps = (state) => {
     return {
-        // productsData: state.fetchProducts,
         products: state.shop.products
     };
 };
