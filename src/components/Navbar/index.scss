@@ -20,39 +20,30 @@
     
     .navbarCart {
         background: #fff;
-        width: 180px;
+        width: 170px;
         border: none;
         border-radius: 15px;
         display: flex;
-        justify-content: space-between;
+        gap: 15px;
         align-items: center;
         padding: 0.5rem;
         cursor: pointer;
 
-        .cartTitle {
-            font-size: 30px;
-            font-weight: bold;
-            color: var(--dark-color);
-        }
+        section {
+            display: flex;
+            flex-direction: column;
 
+            span {
+                color: var(--secondary-color);
+            }
+        }
+   
         .cartImage {
             width: 30px;
             height: 30px;
             object-fit: contain;
         }
 
-        .cartCounter {
-            height: 40px;
-            width: 40px;
-            border: 1px solid var(--secondary-color);
-            border-radius: 50%;
-            color: var(--dark-color);
-            background: var(--light-color);
-            font-size: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     }
     .navbarCart:hover {
         opacity: 0.75;

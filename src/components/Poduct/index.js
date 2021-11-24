@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
-
-// Redux
 import { connect } from "react-redux";
-import {
-    loadCurrentItem,
-    addToCart,
-} from "../../redux/Shopping/shopping-actions";
+import { loadCurrentItem, addToCart } from "../../redux/Shopping/shopping-actions";
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
     return (

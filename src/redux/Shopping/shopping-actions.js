@@ -37,7 +37,7 @@ export const loadCurrentItem = (item) => {
 };
 
 export const fetchData = () => {
-    return (dispatch) => axios.get("https://run.mocky.io/v3/e2584ce0-c1e7-4ea8-ac5d-15171588d82c")
+    return (dispatch) => axios.get("https://run.mocky.io/v3/52bb564e-ba3e-4753-b019-19148d800b82")
         .then(response => {
             return response.data;
         })

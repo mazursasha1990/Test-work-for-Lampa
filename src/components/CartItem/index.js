@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
-import {
-    adjustItemQty,
-    removeFromCart,
-} from "../../redux/Shopping/shopping-actions";
+import { adjustItemQty, removeFromCart } from "../../redux/Shopping/shopping-actions";
 import trashImage from "../../assets/images/cart.svg"
 import './index.scss'
 
@@ -12,7 +8,11 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
     const [input, setInput] = useState(item.qty);
 
     const onChangeHandler = (e) => {
-        setInput(e.target.value);
+        if (e.target.value === "0") {
+            removeFromCart(item.id)
+        } else
+            setInput(e.target.value);
+
         adjustQty(item.id, e.target.value);
     };
 
@@ -30,9 +30,10 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
             </div>
             <div className="cartItemActions">
                 <div className="cartItemQty">
+
                     <label htmlFor="qty">Qty</label>
                     <input
-                        min="1"
+                        min="0"
                         type="number"
                         id="qty"
                         name="qty"

@@ -1,0 +1,36 @@
+.orderForm {
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        align-content: center;
+        justify-content: center;
+        gap: 10px;
+
+        input {
+            height: 20px;
+            width: 97% ;
+        }
+    }
+
+    .submitBtn {
+        padding: 10px 17px;
+        border: 1px solid var(--secondary-color);
+        border-radius: 10px;
+        background: var(--primary-color);
+        color: var(--light-color);
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 50px;
+    }
+
+    .submitBtn:focus {
+        outline: none;
+        border: 1px solid var(--secondary-color);
+    }
+
+    .submitBtn:hover {
+        opacity: 0.75;
+    }
+}
